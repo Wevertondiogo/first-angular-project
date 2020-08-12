@@ -1,0 +1,12 @@
+.container {
+  background: #fff;
+  padding: 50px;
+  width: 1200px;
+  .btn-send {
+    background: #3f51b5;
+    color: #fff;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+}

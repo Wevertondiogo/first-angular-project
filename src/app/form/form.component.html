@@ -1,0 +1,89 @@
+<div class="container">
+  <mat-tab-group animationDuration="0ms">
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <mat-tab label="Login">
+        <ng-template matTabContent>
+          <mat-form-field appearance="outline" class="mt-4">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="exemplo@gamil.com"
+              formControlName="emailLogin"
+            />
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="hasErrorEmailLogin">
+            Digite um email válido
+          </div>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              placeholder="exemplo123"
+              formControlName="passwordLogin"
+              [ngModel]="passwordLogin"
+              maxlength="12"
+            />
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="hasErrorPasswordLogin">
+            Digite a senha
+          </div>
+          <button type="submit" mat-flat-button class="btn-send btn btn-block">
+            Send
+          </button>
+        </ng-template>
+      </mat-tab>
+    </form>
+    <form [formGroup]="formCadastro" (ngSubmit)="sendData()">
+      <mat-tab label="Cadastro">
+        <ng-template matTabContent>
+          <mat-form-field appearance="outline" class="mt-4">
+            <mat-label>Name</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="ExemploName"
+              formControlName="name"
+            />
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="hasErrorMinName">
+            O minimo de caracteres e 3
+          </div>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              placeholder="exemplo@gamil.com"
+              matInput
+              formControlName="emailCadastro"
+            />
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="hasErrorEmailCadastro">
+            email incorreto
+          </div>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              placeholder="exemplo123"
+              formControlName="passwordCadastro"
+              maxlength="12"
+            />
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="hasErrorPasswordCadastro">
+            <p>
+              Senha invalida
+            </p>
+          </div>
+          <div class="alert alert-danger" *ngIf="hasErrorMinPasswordCadastro">
+            <p>A senha deve conter no minímo 6 caracteres</p>
+          </div>
+          <button type="submit" mat-flat-button class="btn-send btn btn-block">
+            Send
+          </button>
+        </ng-template>
+      </mat-tab>
+    </form>
+  </mat-tab-group>
+</div>
