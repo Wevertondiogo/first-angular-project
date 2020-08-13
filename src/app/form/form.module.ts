@@ -8,9 +8,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormComponent } from './form.component';
+import { FormAlertComponent } from './form-alert/form-alert.component';
 
 @NgModule({
-  declarations: [FormComponent],
+  declarations: [FormComponent, FormAlertComponent],
   imports: [
     CommonModule,
     MatInputModule,

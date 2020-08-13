@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgForm } from '@angular/forms';
 import { UsersService } from './../users.service';
 import { Users } from './../model/users';
 import { Router } from '@angular/router';
@@ -87,11 +86,11 @@ export class FormComponent implements OnInit {
       }
     }
   }
-  submitRegister(form: NgForm) {
+  submitRegister() {
     this.checkRegisterField();
     if (!this.checkInvalidRegister) {
       this._usersService.saveUser(this.user).subscribe(() => {
-        this.cleanForm(form);
+        this.cleanForm(this.formRegister);
       });
       this.router.navigate(['list']);
     }
@@ -130,7 +129,7 @@ export class FormComponent implements OnInit {
     });
   }
 
-  cleanForm(form: NgForm) {
+  cleanForm(form) {
     this.getUser();
     form.resetForm();
     this.user = {} as Users;
